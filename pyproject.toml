@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "currency-converter"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Program will convert currency between USD (United States Dollars) and ILS (Israeli Shekel)"
+authors = ["Netzer <netzer.yech@gmail.com>"]
 readme = "README.md"
 packages = [{include = "currency"}]
 
