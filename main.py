@@ -30,7 +30,8 @@ def get_user_choice():
         usd = USD()
         # defined an object using class
         result = Result(usd.calculate(value_to_convert), 'USD to ILS')
-        # defined an object using class        print(result.result)
+        # defined an object using class
+        print(result.result)
         currency_list.append((result.result, result.conversion))
         # append result and conversion to the list
         write_result(str(result.result))
