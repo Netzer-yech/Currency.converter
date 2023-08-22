@@ -75,7 +75,7 @@ button_frame = Frame(root)
 button_frame.grid(row=4, column=1)
 
 clear_button = Button(button_frame, text="Clear", width=8, height=1, command=clear)
-clear_button.grid(row=0, column=1)
+clear_button.grid(row=2, column=1)
 
 space_label_2 = Label(button_frame, text=' ', width=9, height=1)
 space_label_2.grid(row=1, column=0)
@@ -84,9 +84,9 @@ usd_ils_button = Button(button_frame, text="USD to ILS", width=9, height=1, comm
 ils_usd_button = Button(button_frame, text="ILS to USD", width=9, height=1, command=ils_usd)
 ils_eur_button = Button(button_frame, text="ILS to EUR", width=9, height=1, command=ils_eur)
 
-usd_ils_button.grid(row=2, column=0)
-ils_usd_button.grid(row=2, column=1)
-ils_eur_button.grid(row=2, column=2)
+usd_ils_button.grid(row=0, column=0)
+ils_usd_button.grid(row=0, column=1)
+ils_eur_button.grid(row=0, column=2)
 
 result_frame = Frame(root, width=40, height=20)
 result_frame.grid(row=5, column=1, columnspan=1)
@@ -94,10 +94,10 @@ result_frame.grid(row=5, column=1, columnspan=1)
 result_space = Label(result_frame, text='   ', font=2)
 result_space.grid(row=0, column=0)
 
-result_label_1 = Label(result_frame, text='Result:', font=2)
+result_label_1 = Label(result_frame, text='Result:')
 result_label_1.grid(row=1, column=0)
 
-result_label = Label(result_frame, text=' ', font=2)
+result_label = Label(result_frame, text=' ')
 result_label.grid(row=1, column=1)
 
 
