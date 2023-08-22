@@ -106,7 +106,6 @@ def write_result(result):
 # this function append all results to a file that created before using i/o
 
 def main():
-    print('Please choose option (1/2/3):')
     print('1. Dollars to Shekels')
     print('2. Shekels to Dollars')
     print('3. Shekels to Euros')
@@ -118,6 +117,10 @@ print('Welcome to currency converter')
 
 main()
 # execute main function for first screen
+
+
+
+
 
 
 
