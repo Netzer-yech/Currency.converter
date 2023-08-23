@@ -32,6 +32,7 @@ def usd_ils():
         currency_file.write(str(f"{round(result, 2)} USD to ILS"))
         currency_file.write(' \n')
         currency_file.close()
+        e.delete(0, END)
     except ValueError:
         e.delete(0, END)
         error = "Invalid value"
@@ -49,6 +50,7 @@ def ils_usd():
         currency_file.write(str(f"{round(result, 2)} ILS to USD"))
         currency_file.write(' \n')
         currency_file.close()
+        e.delete(0, END)
     except ValueError:
         e.delete(0, END)
         error = "Invalid value"
@@ -66,6 +68,7 @@ def ils_eur():
         currency_file.write(str(f"{round(result, 2)} ILS to EUR"))
         currency_file.write(' \n')
         currency_file.close()
+        e.delete(0, END)
     except ValueError:
         e.delete(0, END)
         error = "Invalid value"
