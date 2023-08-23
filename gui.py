@@ -1,8 +1,8 @@
-
+import os
 from tkinter import *
-from coins import USD
-from coins import ILS
-from coins import EUR
+from coins import USD, ILS, EUR
+from documents import LIST, Result
+import atexit
 
 
 root = Tk()
@@ -10,15 +10,28 @@ root.geometry("360x300")
 root.title('Currency Converter')
 root.iconbitmap("C:\\automation course\icons\exchange.ico")
 
+currency_list = LIST()
+currency_list.create_file()
+currency_list = []
+
+def exit_func():
+    with open('C:\\automation course\\Currency_Results.txt', 'r') as file:
+        os.startfile('C:\\automation course\\Currency_Results.txt')
 def clear():
     e.delete(0, END)
     result_label.config(text='')
+
 def usd_ils():
     try:
-        current = int(e.get())
+        current = float(e.get())
         usd = USD()
-        result = usd.calculate(int(current))
+        result = usd.calculate(current)
         result_label.config(text=f"{round(result, 2)} USD to ILS")
+        currency_list.append(result)
+        currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
+        currency_file.write(str(f"{round(result, 2)} USD to ILS"))
+        currency_file.write(' \n')
+        currency_file.close()
     except ValueError:
         e.delete(0, END)
         error = "Invalid value"
@@ -27,10 +40,15 @@ def usd_ils():
 
 def ils_usd():
     try:
-        current = int(e.get())
+        current = float(e.get())
         ils = ILS()
         result = ils.calculate(int(current))
         result_label.config(text=f"{round(result, 2)} ILS to USD")
+        currency_list.append(result)
+        currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
+        currency_file.write(str(f"{round(result, 2)} ILS to USD"))
+        currency_file.write(' \n')
+        currency_file.close()
     except ValueError:
         e.delete(0, END)
         error = "Invalid value"
@@ -39,10 +57,15 @@ def ils_usd():
 
 def ils_eur():
     try:
-        current = int(e.get())
+        current = float(e.get())
         eur = EUR()
         result = eur.calculate(int(current))
         result_label.config(text=f"{round(result, 2)} ILS to EUR")
+        currency_list.append(result)
+        currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
+        currency_file.write(str(f"{round(result, 2)} ILS to EUR"))
+        currency_file.write(' \n')
+        currency_file.close()
     except ValueError:
         e.delete(0, END)
         error = "Invalid value"
@@ -100,8 +123,6 @@ result_label_1.grid(row=1, column=0)
 result_label = Label(result_frame, text=' ')
 result_label.grid(row=1, column=1)
 
-
-
-
+atexit.register(exit_func)
 
 root.mainloop()

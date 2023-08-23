@@ -1,7 +1,7 @@
 class LIST:
 
     def create_file(self):
-        list_file = open('C:\\automation course\\results.txt', 'w')
+        list_file = open('C:\\automation course\\Currency_Results.txt', 'w')
         list_file.close()
 
 
