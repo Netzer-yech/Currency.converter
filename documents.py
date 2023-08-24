@@ -2,6 +2,7 @@ class LIST:
 
     def create_file(self):
         list_file = open('C:\\automation course\\Currency_Results.txt', 'w')
+        list_file.write("Here are the last conversions you made: \n \n")
         list_file.close()
 
 

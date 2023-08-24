@@ -31,7 +31,7 @@ def usd_ils():
         currency_label.config(text=f"1 USD = {round(ils_rate, 4)} ILS")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
-        currency_file.write(str(f"{round(result, 4)} USD to ILS"))
+        currency_file.write(str(f"{round(current, 4)} USD = {round(result, 4)} ILS"))
         currency_file.write(' \n')
         currency_file.close()
         e.delete(0, END)
@@ -51,7 +51,7 @@ def ils_usd():
         currency_label.config(text=f"1 ILS = {round(1 / ils_rate, 4)} USD")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
-        currency_file.write(str(f"{round(result, 4)} ILS to USD"))
+        currency_file.write(str(f"{round(current, 4)} ILS = {round(result, 4)} USD"))
         currency_file.write(' \n')
         currency_file.close()
         e.delete(0, END)
@@ -72,7 +72,7 @@ def ils_eur():
         currency_label.config(text=f"1 ILS = {round(1 / ils_rate * eur_rate, 4)} EUR")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
-        currency_file.write(str(f"{round(result, 4)} ILS to EUR"))
+        currency_file.write(str(f"{round(current, 4)} ILS = {round(result, 4)} EUR"))
         currency_file.write(' \n')
         currency_file.close()
         e.delete(0, END)
@@ -80,10 +80,6 @@ def ils_eur():
         e.delete(0, END)
         error = "Invalid value"
         result_label.config(text=f"{error}")
-
-
-
-
 
 
 welcome_label = Label(root, text='Welcome to Currency Converter!', width=30, height=2)
