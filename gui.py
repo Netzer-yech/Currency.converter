@@ -4,15 +4,6 @@ from coins import *
 from documents import LIST
 import atexit
 
-root = Tk()
-root.geometry("360x300")
-root.title('Currency Converter')
-root.iconbitmap("C:\\automation course\\icons\\exchange.ico")
-
-currency_list = LIST()
-currency_list.create_file()
-currency_list = []
-
 def exit_func():
     with open('C:\\automation course\\Currency_Results.txt', 'r') as file:
         os.startfile('C:\\automation course\\Currency_Results.txt')
@@ -81,6 +72,14 @@ def ils_eur():
         error = "Invalid value"
         result_label.config(text=f"{error}")
 
+root = Tk()
+root.geometry("360x300")
+root.title('Currency Converter')
+root.iconbitmap("C:\\automation course\\icons\\exchange.ico")
+
+currency_list = LIST()
+currency_list.create_file()
+currency_list = []
 
 welcome_label = Label(root, text='Welcome to Currency Converter!', width=30, height=2)
 welcome_label.grid(row=0, column=1)
