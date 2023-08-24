@@ -1,7 +1,7 @@
 import os
 from tkinter import *
 from coins import *
-from documents import LIST, Result
+from documents import LIST
 import atexit
 
 root = Tk()

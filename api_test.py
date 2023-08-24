@@ -9,4 +9,4 @@ def get_rates():
     data = json.loads(response.text)
     return data
 
-print(get_rates()["rates"]["EUR"])
+print(get_rates()["rates"])
