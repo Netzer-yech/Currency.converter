@@ -1,6 +1,6 @@
 import os
 from tkinter import *
-from coins import USD, ILS, EUR
+from coins import *
 from documents import LIST, Result
 import atexit
 
@@ -19,16 +19,19 @@ def exit_func():
 def clear():
     e.delete(0, END)
     result_label.config(text='')
+    currency_label.config(text='')
 
 def usd_ils():
     try:
         current = float(e.get())
         usd = USD()
         result = usd.calculate(current)
-        result_label.config(text=f"{round(result, 2)} ILS")
+        result_label.config(text=f"{round(result, 4)} ILS")
+        ils_rate = round(get_rates()["rates"]["ILS"], 4)
+        currency_label.config(text=f"1 USD = {round(ils_rate, 4)} ILS")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
-        currency_file.write(str(f"{round(result, 2)} USD to ILS"))
+        currency_file.write(str(f"{round(result, 4)} USD to ILS"))
         currency_file.write(' \n')
         currency_file.close()
         e.delete(0, END)
@@ -43,10 +46,12 @@ def ils_usd():
         current = float(e.get())
         ils = ILS()
         result = ils.calculate(int(current))
-        result_label.config(text=f"{round(result, 2)} USD")
+        result_label.config(text=f"{round(result, 4)} USD")
+        ils_rate = round(get_rates()["rates"]["ILS"], 4)
+        currency_label.config(text=f"1 ILS = {round(1 / ils_rate, 4)} USD")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
-        currency_file.write(str(f"{round(result, 2)} ILS to USD"))
+        currency_file.write(str(f"{round(result, 4)} ILS to USD"))
         currency_file.write(' \n')
         currency_file.close()
         e.delete(0, END)
@@ -61,10 +66,13 @@ def ils_eur():
         current = float(e.get())
         eur = EUR()
         result = eur.calculate(int(current))
-        result_label.config(text=f"{round(result, 2)} EUR")
+        result_label.config(text=f"{round(result, 4)} EUR")
+        ils_rate = round(get_rates()["rates"]["ILS"], 4)
+        eur_rate = round(get_rates()["rates"]["EUR"], 4)
+        currency_label.config(text=f"1 ILS = {round(1 / ils_rate * eur_rate, 4)} EUR")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')
-        currency_file.write(str(f"{round(result, 2)} ILS to EUR"))
+        currency_file.write(str(f"{round(result, 4)} ILS to EUR"))
         currency_file.write(' \n')
         currency_file.close()
         e.delete(0, END)
@@ -124,6 +132,12 @@ result_label_1.grid(row=1, column=0)
 
 result_label = Label(result_frame, text='')
 result_label.grid(row=1, column=1)
+
+currency_label = Label(result_frame, text='')
+currency_label.grid(row=2, column=1)
+
+currency_label_2 = Label(result_frame, text='Currency: ')
+currency_label_2.grid(row=2, column=0)
 
 atexit.register(exit_func)
 

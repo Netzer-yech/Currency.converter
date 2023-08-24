@@ -15,14 +15,14 @@ class ILS:
         return ils_rate
 
     def calculate(self, user_input):
-        return round(user_input / self.get_value(), 2)
+        return round(user_input / self.get_value(), 4)
 
 class USD:
     def get_value(self):
         ils_rate = round(get_rates()["rates"]["ILS"], 4)
         return ils_rate
     def calculate(self, user_input):
-        return round(user_input * self.get_value(), 2)
+        return round(user_input * self.get_value(), 4)
 
 class EUR:
     def get_value_1(self):
@@ -33,7 +33,7 @@ class EUR:
         ils_rate = round(get_rates()["rates"]["ILS"], 4)
         return ils_rate
     def calculate(self, user_input):
-        return round(user_input / self.get_value_2() * self.get_value_1(), 2)
+        return round(user_input / self.get_value_2() * self.get_value_1(), 4)
 
 # creating classes for easy control on codes in program
 
