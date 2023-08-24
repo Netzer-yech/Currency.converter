@@ -6,7 +6,7 @@ import atexit
 
 def exit_func():
     with open('C:\\automation course\\Currency_Results.txt', 'r') as file:
-        os.startfile('C:\\automation course\\Currency_Results.txt')
+    os.startfile('C:\\automation course\\Currency_Results.txt')
 def clear():
     e.delete(0, END)
     result_label.config(text='')
@@ -73,9 +73,15 @@ def ils_eur():
         result_label.config(text=f"{error}")
 
 root = Tk()
-root.geometry("360x300")
 root.title('Currency Converter')
 root.iconbitmap("C:\\automation course\\icons\\exchange.ico")
+app_width = 360
+app_height = 300
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width / 2) - (app_width / 2)
+y = (screen_height / 2) - (app_height / 2)
+root.geometry(f"{app_width}x{app_height}+{int(x)}+{int(y)}")
 
 currency_list = LIST()
 currency_list.create_file()
@@ -133,6 +139,7 @@ currency_label.grid(row=2, column=1)
 
 currency_label_2 = Label(result_frame, text='Currency: ')
 currency_label_2.grid(row=2, column=0)
+
 
 atexit.register(exit_func)
 
