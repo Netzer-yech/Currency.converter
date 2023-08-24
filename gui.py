@@ -6,7 +6,7 @@ import atexit
 
 def exit_func():
     with open('C:\\automation course\\Currency_Results.txt', 'r') as file:
-    os.startfile('C:\\automation course\\Currency_Results.txt')
+        os.startfile('C:\\automation course\\Currency_Results.txt')
 def clear():
     e.delete(0, END)
     result_label.config(text='')
