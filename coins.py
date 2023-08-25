@@ -12,6 +12,9 @@ def get_rates():
 class ILS:
     def get_value(self):
         ils_rate = round(get_rates()["rates"]["ILS"], 4)
+        # ["rates"] is to retrieve the value of the key "rates" from the "data" dictionary that return from get_rates() method
+        # "rates" value is another dictionary
+        # ["ILS"] is to retrieve the value of the key "ILS" from the "rates" dictionary
         return ils_rate
 
     def calculate(self, user_input):
