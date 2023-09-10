@@ -22,7 +22,7 @@ def usd_ils():
         usd = USD()
         result = usd.calculate(current)
         result_label.config(text=f"{round(result, 4)} ILS")
-        ils_rate = usd.get_value()
+        ils_rate = usd.get_value() #get the cache rate for labels
         currency_label.config(text=f"1 USD = {round(ils_rate, 4)} ILS")
         currency_list.append(result)
         currency_file = open('C:\\automation course\\Currency_Results.txt', 'a')

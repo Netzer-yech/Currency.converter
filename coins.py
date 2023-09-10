@@ -32,7 +32,7 @@ def get_rates():
 
 class ILS:
     def get_value(self):
-        update_currency_rates()
+        update_currency_rates() #update rates if needed
         ils_rate = round(last_currency_rates["rates"]["ILS"], 4)
         # ["rates"] is to retrieve the value of the key "rates" from the "data" dictionary that return from get_rates() method
         # "rates" value is another dictionary
